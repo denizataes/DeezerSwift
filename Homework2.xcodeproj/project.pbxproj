@@ -9,21 +9,52 @@
 /* Begin PBXBuildFile section */
 		A0011C3B295E2D57006F9FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0011C3A295E2D57006F9FB5 /* AppDelegate.swift */; };
 		A0011C3D295E2D57006F9FB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0011C3C295E2D57006F9FB5 /* SceneDelegate.swift */; };
-		A0011C3F295E2D57006F9FB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0011C3E295E2D57006F9FB5 /* ViewController.swift */; };
+		A0011C3F295E2D57006F9FB5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0011C3E295E2D57006F9FB5 /* HomeViewController.swift */; };
 		A0011C42295E2D57006F9FB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0011C40295E2D57006F9FB5 /* Main.storyboard */; };
 		A0011C44295E2D57006F9FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0011C43295E2D57006F9FB5 /* Assets.xcassets */; };
 		A0011C47295E2D57006F9FB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0011C45295E2D57006F9FB5 /* LaunchScreen.storyboard */; };
+		A091CB38295E2DB800476957 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB37295E2DB800476957 /* APICaller.swift */; };
+		A091CB3B295E2EDB00476957 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB3A295E2EDB00476957 /* Genres.swift */; };
+		A091CB3F295E33A900476957 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB3E295E33A900476957 /* Artist.swift */; };
+		A091CB41295E35AB00476957 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB40295E35AB00476957 /* Album.swift */; };
+		A091CB67295E4F2200476957 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB66295E4F2200476957 /* SearchViewController.swift */; };
+		A091CB6A295E4FAA00476957 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB68295E4FAA00476957 /* HomeTableViewCell.swift */; };
+		A091CB6B295E4FAA00476957 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A091CB69295E4FAA00476957 /* HomeTableViewCell.xib */; };
+		A091CB6E295EEF2400476957 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A091CB6D295EEF2400476957 /* Kingfisher */; };
+		A091CB70295EF68D00476957 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB6F295EF68D00476957 /* GenreViewController.swift */; };
+		A091CB73295F024100476957 /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB71295F024100476957 /* ArtistTableViewCell.swift */; };
+		A091CB74295F024100476957 /* ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A091CB72295F024100476957 /* ArtistTableViewCell.xib */; };
+		A091CB76295F15A400476957 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB75295F15A400476957 /* AlbumViewController.swift */; };
+		A091CB78295F18CE00476957 /* ArtistAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB77295F18CE00476957 /* ArtistAlbum.swift */; };
+		A091CB7A295F22B500476957 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB79295F22B500476957 /* AlbumDetailViewController.swift */; };
+		A091CB7D295F310A00476957 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB7C295F310A00476957 /* Utils.swift */; };
+		A091CB7F295F371C00476957 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB7E295F371C00476957 /* PostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A0011C37295E2D57006F9FB5 /* Homework2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0011C3A295E2D57006F9FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0011C3C295E2D57006F9FB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A0011C3E295E2D57006F9FB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A0011C3E295E2D57006F9FB5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A0011C41295E2D57006F9FB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0011C43295E2D57006F9FB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0011C46295E2D57006F9FB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0011C48295E2D57006F9FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A091CB37295E2DB800476957 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		A091CB3A295E2EDB00476957 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		A091CB3E295E33A900476957 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		A091CB40295E35AB00476957 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		A091CB66295E4F2200476957 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A091CB68295E4FAA00476957 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		A091CB69295E4FAA00476957 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		A091CB6F295EF68D00476957 /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		A091CB71295F024100476957 /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
+		A091CB72295F024100476957 /* ArtistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistTableViewCell.xib; sourceTree = "<group>"; };
+		A091CB75295F15A400476957 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		A091CB77295F18CE00476957 /* ArtistAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbum.swift; sourceTree = "<group>"; };
+		A091CB79295F22B500476957 /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		A091CB7C295F310A00476957 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A091CB7E295F371C00476957 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A091CB6E295EEF2400476957 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +88,86 @@
 		A0011C39295E2D57006F9FB5 /* Homework2 */ = {
 			isa = PBXGroup;
 			children = (
+				A091CB7B295F30FE00476957 /* Utils */,
+				A091CB64295E4ED700476957 /* View */,
+				A091CB39295E2ECF00476957 /* Model */,
 				A0011C3A295E2D57006F9FB5 /* AppDelegate.swift */,
 				A0011C3C295E2D57006F9FB5 /* SceneDelegate.swift */,
-				A0011C3E295E2D57006F9FB5 /* ViewController.swift */,
-				A0011C40295E2D57006F9FB5 /* Main.storyboard */,
 				A0011C43295E2D57006F9FB5 /* Assets.xcassets */,
-				A0011C45295E2D57006F9FB5 /* LaunchScreen.storyboard */,
 				A0011C48295E2D57006F9FB5 /* Info.plist */,
+				A091CB37295E2DB800476957 /* APICaller.swift */,
+				A091CB65295E4EE700476957 /* Controller */,
 			);
 			path = Homework2;
+			sourceTree = "<group>";
+		};
+		A091CB39295E2ECF00476957 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A091CB3A295E2EDB00476957 /* Genres.swift */,
+				A091CB3E295E33A900476957 /* Artist.swift */,
+				A091CB40295E35AB00476957 /* Album.swift */,
+				A091CB77295F18CE00476957 /* ArtistAlbum.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A091CB64295E4ED700476957 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A091CB82295F375A00476957 /* Album */,
+				A091CB81295F375100476957 /* Artist */,
+				A091CB80295F374400476957 /* Home */,
+				A0011C40295E2D57006F9FB5 /* Main.storyboard */,
+				A0011C45295E2D57006F9FB5 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A091CB65295E4EE700476957 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0011C3E295E2D57006F9FB5 /* HomeViewController.swift */,
+				A091CB66295E4F2200476957 /* SearchViewController.swift */,
+				A091CB6F295EF68D00476957 /* GenreViewController.swift */,
+				A091CB75295F15A400476957 /* AlbumViewController.swift */,
+				A091CB79295F22B500476957 /* AlbumDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A091CB7B295F30FE00476957 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A091CB7C295F310A00476957 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A091CB80295F374400476957 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A091CB68295E4FAA00476957 /* HomeTableViewCell.swift */,
+				A091CB69295E4FAA00476957 /* HomeTableViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A091CB81295F375100476957 /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				A091CB71295F024100476957 /* ArtistTableViewCell.swift */,
+				A091CB72295F024100476957 /* ArtistTableViewCell.xib */,
+			);
+			path = Artist;
+			sourceTree = "<group>";
+		};
+		A091CB82295F375A00476957 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				A091CB7E295F371C00476957 /* PostCell.swift */,
+			);
+			path = Album;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +186,9 @@
 			dependencies = (
 			);
 			name = Homework2;
+			packageProductDependencies = (
+				A091CB6D295EEF2400476957 /* Kingfisher */,
+			);
 			productName = Homework2;
 			productReference = A0011C37295E2D57006F9FB5 /* Homework2.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +217,9 @@
 				Base,
 			);
 			mainGroup = A0011C2E295E2D57006F9FB5;
+			packageReferences = (
+				A091CB6C295EEF2400476957 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A0011C38295E2D57006F9FB5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +234,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A091CB74295F024100476957 /* ArtistTableViewCell.xib in Resources */,
 				A0011C47295E2D57006F9FB5 /* LaunchScreen.storyboard in Resources */,
 				A0011C44295E2D57006F9FB5 /* Assets.xcassets in Resources */,
+				A091CB6B295E4FAA00476957 /* HomeTableViewCell.xib in Resources */,
 				A0011C42295E2D57006F9FB5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +249,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0011C3F295E2D57006F9FB5 /* ViewController.swift in Sources */,
+				A091CB76295F15A400476957 /* AlbumViewController.swift in Sources */,
+				A091CB3F295E33A900476957 /* Artist.swift in Sources */,
+				A091CB3B295E2EDB00476957 /* Genres.swift in Sources */,
+				A091CB67295E4F2200476957 /* SearchViewController.swift in Sources */,
+				A0011C3F295E2D57006F9FB5 /* HomeViewController.swift in Sources */,
+				A091CB7D295F310A00476957 /* Utils.swift in Sources */,
 				A0011C3B295E2D57006F9FB5 /* AppDelegate.swift in Sources */,
 				A0011C3D295E2D57006F9FB5 /* SceneDelegate.swift in Sources */,
+				A091CB73295F024100476957 /* ArtistTableViewCell.swift in Sources */,
+				A091CB70295EF68D00476957 /* GenreViewController.swift in Sources */,
+				A091CB78295F18CE00476957 /* ArtistAlbum.swift in Sources */,
+				A091CB6A295E4FAA00476957 /* HomeTableViewCell.swift in Sources */,
+				A091CB7A295F22B500476957 /* AlbumDetailViewController.swift in Sources */,
+				A091CB41295E35AB00476957 /* Album.swift in Sources */,
+				A091CB38295E2DB800476957 /* APICaller.swift in Sources */,
+				A091CB7F295F371C00476957 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +482,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A091CB6C295EEF2400476957 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A091CB6D295EEF2400476957 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A091CB6C295EEF2400476957 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0011C2F295E2D57006F9FB5 /* Project object */;
 }
