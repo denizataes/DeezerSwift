@@ -281,6 +281,7 @@
             <point key="canvasLocation" x="2147.3282442748091" y="217.60563380281693"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemBackgroundColor"/>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>

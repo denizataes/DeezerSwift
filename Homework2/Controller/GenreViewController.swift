@@ -18,7 +18,7 @@ class GenreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = genreName
-        
+        self.navigationController?.navigationBar.tintColor = UIColor.purple
         activityIndicator.startAnimating()
         activityIndicator.style = .medium
         tableView.register(UINib(nibName: "ArtistTableViewCell", bundle: nil), forCellReuseIdentifier: "artistTableViewCell")

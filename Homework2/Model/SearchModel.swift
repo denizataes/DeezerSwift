@@ -24,6 +24,9 @@ struct Search: Codable {
     let explicit_lyrics: Bool?
     let artist: ArtistSearch?
     let type: String?
+    let name: String?
+    let picture_small, picture_medium, picture_big, picture_xl: String?
+
 
 }
 

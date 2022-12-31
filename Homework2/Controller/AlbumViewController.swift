@@ -21,8 +21,9 @@ class AlbumViewController: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        self.navigationController?.navigationBar.tintColor = UIColor.purple
         title = artistName
-        activityIndicator.startAnimating()
+        //activityIndicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.getAlbums()
         }
@@ -40,7 +41,7 @@ class AlbumViewController: UIViewController {
                 DispatchQueue.main.async{
                     self.artistAlbums = album.data ?? [ArtistAlbum]()
                     self.collectionView.reloadData()
-                    self.activityIndicator.stopAnimating()
+                   // self.activityIndicator.stopAnimating()
                 }
             case .failure(let error):
                 print(error.localizedDescription)

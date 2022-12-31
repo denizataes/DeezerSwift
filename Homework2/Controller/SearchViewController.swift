@@ -20,7 +20,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.topItem?.title = "Ara 👀"
-        navigationController?.navigationBar.tintColor = .systemBackground
+        navigationController?.navigationBar.tintColor = UIColor.purple
         navigationController?.navigationBar.prefersLargeTitles = true
         
         tableView.delegate = self
@@ -82,6 +82,18 @@ extension SearchViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let searchBar = searchController.searchBar
+        let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        if(scopeButton == "artist"){
+            if let vc =  storyboard?.instantiateViewController(withIdentifier: "albumViewController") as? AlbumViewController{
+                let artist = self.searchList[indexPath.row]
+                vc.artistID = artist.id
+                vc.artistName = artist.name
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        
     }
 }
 
@@ -106,8 +118,8 @@ extension SearchViewController: UITableViewDataSource{
             cell.photoView.kf.setImage(with: URL(string: "\(self.searchList[indexPath.row].cover_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
             
         case "artist":
-            cell.label.text = String(self.searchList[indexPath.row].id)
-           // cell.photoView.kf.setImage(with: URL(string: "\(self.searchList[indexPath.row].id ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
+            cell.label.text = String(self.searchList[indexPath.row].name ?? "")
+            cell.photoView.kf.setImage(with: URL(string: "\(self.searchList[indexPath.row].picture_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
         default:
             return cell
         }

@@ -19,6 +19,8 @@ class PostCell: UICollectionViewCell{
         image.kf.indicatorType = .activity
         pTitle.adjustsFontSizeToFitWidth = true
         pTitle.sizeToFit()
+        pTitle.textColor = .systemPurple
+        pReleaseDate.textColor = .systemPurple
     }
     
 

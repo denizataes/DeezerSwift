@@ -16,9 +16,11 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "homeTableViewCell")
+        self.navigationController?.navigationBar.tintColor = UIColor.purple
+
         getGenres()
         navigationController?.navigationBar.topItem?.title = "Kategoriler ⚡️"
-        navigationController?.navigationBar.tintColor = .systemBackground
+       // navigationController?.navigationBar.tintColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
 
 
