@@ -116,4 +116,24 @@ class APICaller{
         task.resume()
 
     }
+
+    func searchByQuery(type: String, query: String ,completion: @escaping (Result<SearchModel, Error>) -> Void){
+        guard let url = URL(string: "\(Constants.baseURL)/search/\(type)/?q=\(query)") else {return}
+        print("\(Constants.baseURL)/search/\(type)/?q=\(query)")
+
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            guard let data, error == nil else{
+                return
+            }
+            do{
+                let results = try JSONDecoder().decode(SearchModel.self, from: data)
+                completion(.success(results))
+            }catch{
+                print(String(describing: error)) // <- ✅ Use this for debuging!
+                completion(.failure(APIError.failedToGetData))
+            }
+
+        }
+        task.resume()
+    }
 }

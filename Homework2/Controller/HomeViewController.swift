@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "homeTableViewCell")
         getGenres()
         navigationController?.navigationBar.topItem?.title = "Kategoriler ⚡️"
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
 
 

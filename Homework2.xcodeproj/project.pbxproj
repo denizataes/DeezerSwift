@@ -13,6 +13,8 @@
 		A0011C42295E2D57006F9FB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0011C40295E2D57006F9FB5 /* Main.storyboard */; };
 		A0011C44295E2D57006F9FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0011C43295E2D57006F9FB5 /* Assets.xcassets */; };
 		A0011C47295E2D57006F9FB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0011C45295E2D57006F9FB5 /* LaunchScreen.storyboard */; };
+		A069BA71296057A200CCA6A8 /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069BA70296057A200CCA6A8 /* SearchItem.swift */; };
+		A069BA7329605CA200CCA6A8 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069BA7229605CA200CCA6A8 /* SearchModel.swift */; };
 		A091CB38295E2DB800476957 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB37295E2DB800476957 /* APICaller.swift */; };
 		A091CB3B295E2EDB00476957 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB3A295E2EDB00476957 /* Genres.swift */; };
 		A091CB3F295E33A900476957 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB3E295E33A900476957 /* Artist.swift */; };
@@ -40,6 +42,8 @@
 		A0011C43295E2D57006F9FB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0011C46295E2D57006F9FB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0011C48295E2D57006F9FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A069BA70296057A200CCA6A8 /* SearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
+		A069BA7229605CA200CCA6A8 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		A091CB37295E2DB800476957 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		A091CB3A295E2EDB00476957 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		A091CB3E295E33A900476957 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				A091CB3E295E33A900476957 /* Artist.swift */,
 				A091CB40295E35AB00476957 /* Album.swift */,
 				A091CB77295F18CE00476957 /* ArtistAlbum.swift */,
+				A069BA70296057A200CCA6A8 /* SearchItem.swift */,
+				A069BA7229605CA200CCA6A8 /* SearchModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 				A091CB76295F15A400476957 /* AlbumViewController.swift in Sources */,
 				A091CB3F295E33A900476957 /* Artist.swift in Sources */,
 				A091CB3B295E2EDB00476957 /* Genres.swift in Sources */,
+				A069BA7329605CA200CCA6A8 /* SearchModel.swift in Sources */,
 				A091CB67295E4F2200476957 /* SearchViewController.swift in Sources */,
 				A0011C3F295E2D57006F9FB5 /* HomeViewController.swift in Sources */,
 				A091CB7D295F310A00476957 /* Utils.swift in Sources */,
@@ -263,6 +270,7 @@
 				A091CB6A295E4FAA00476957 /* HomeTableViewCell.swift in Sources */,
 				A091CB7A295F22B500476957 /* AlbumDetailViewController.swift in Sources */,
 				A091CB41295E35AB00476957 /* Album.swift in Sources */,
+				A069BA71296057A200CCA6A8 /* SearchItem.swift in Sources */,
 				A091CB38295E2DB800476957 /* APICaller.swift in Sources */,
 				A091CB7F295F371C00476957 /* PostCell.swift in Sources */,
 			);

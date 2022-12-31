@@ -21,28 +21,43 @@
                     </tabBar>
                     <connections>
                         <segue destination="yzj-e0-l2O" kind="relationship" relationship="viewControllers" id="iqZ-gu-6YG"/>
-                        <segue destination="c1R-6C-e3I" kind="relationship" relationship="viewControllers" id="Elm-qT-XPz"/>
+                        <segue destination="M6Z-dG-X5B" kind="relationship" relationship="viewControllers" id="Elm-qT-XPz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7a-34-NnB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10" y="-528"/>
         </scene>
-        <!--Search-->
+        <!--Search View Controller-->
         <scene sceneID="p4X-rJ-Hpa">
             <objects>
                 <viewController storyboardIdentifier="searchViewController" id="c1R-6C-e3I" customClass="SearchViewController" customModule="Homework2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gov-jv-QX1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cMk-el-lvw">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hgx-8i-atE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cMk-el-lvw" firstAttribute="leading" secondItem="hgx-8i-atE" secondAttribute="leading" id="7oz-LR-We6"/>
+                            <constraint firstItem="hgx-8i-atE" firstAttribute="trailing" secondItem="cMk-el-lvw" secondAttribute="trailing" id="NsW-9Q-caL"/>
+                            <constraint firstItem="cMk-el-lvw" firstAttribute="top" secondItem="hgx-8i-atE" secondAttribute="top" id="Ya7-G8-3ia"/>
+                            <constraint firstItem="cMk-el-lvw" firstAttribute="bottom" secondItem="hgx-8i-atE" secondAttribute="bottom" id="kRP-Yu-J34"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Swf-od-uLn"/>
+                    <navigationItem key="navigationItem" id="Om2-oT-O2e"/>
+                    <connections>
+                        <outlet property="tableView" destination="cMk-el-lvw" id="QC5-Uw-eQl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNM-AJ-d1Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2147.3282442748091" y="217.60563380281693"/>
+            <point key="canvasLocation" x="3072.5190839694656" y="217.60563380281693"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="lLR-pX-5Pw">
@@ -245,6 +260,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ir-UH-1od" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1080.1526717557251" y="1762.6760563380283"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="l8A-SO-x70">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M6Z-dG-X5B" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Swf-od-uLn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kkc-s5-t9s">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c1R-6C-e3I" kind="relationship" relationship="rootViewController" id="gcC-Zm-m1N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p4N-Py-0tK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2147.3282442748091" y="217.60563380281693"/>
         </scene>
     </scenes>
     <resources>
