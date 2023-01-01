@@ -9,12 +9,17 @@ import UIKit
 import Kingfisher
 
 class SearchViewController: UIViewController, UISearchResultsUpdating {
-
+    
     
     @IBOutlet weak var tableView: UITableView!
-    var searchList = [Search]()
+    var artistSearchList = [SearchArtist]()
+    var albumSearchList = [SearchAlbum]()
+    var trackSearchList = [SearchTrack]()
     let searchController = UISearchController()
-    let sections = ["artist", "album", "track"]
+    let sections: [String] = Category.allCases.map { $0.buttonTitle }
+    
+    
+    //    let sections = ["artist", "album", "track"]
     //var filteredShapes = []()
     
     override func viewDidLoad() {
@@ -22,7 +27,10 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         navigationController?.navigationBar.topItem?.title = "Ara 👀"
         navigationController?.navigationBar.tintColor = UIColor.purple
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        tableView.register(UINib(nibName: "AlbumSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "albumSearchTableViewCell")
+
+        tableView.register(UINib(nibName: "TrackSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "trackSearchTableViewCell")
+
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -42,17 +50,53 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     }
     
     private func searchByQuery(type: String, query: String){
-        APICaller.shared.searchByQuery(type: type, query: query) { data in
-            switch(data)
-            {
-            case .success(let searchList):
-                DispatchQueue.main.async {
-                    self.searchList = searchList.data ?? [Search]()
-                    self.tableView.reloadData()
+        
+        switch(type)
+        {
+        case Category.artist.buttonTitle:
+            APICaller.shared.searchArtistByQuery(query: query) { data in
+                switch(data)
+                {
+                case .success(let searchList):
+                    DispatchQueue.main.async {
+                        self.artistSearchList = searchList.data ?? [SearchArtist]()
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
             }
+            
+        case Category.album.buttonTitle:
+            APICaller.shared.searchAlbumByQuery(query: query) { data in
+                switch(data)
+                {
+                case .success(let searchList):
+                    DispatchQueue.main.async {
+                        self.albumSearchList = searchList.data ?? [SearchAlbum]()
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Category.track.buttonTitle:
+            APICaller.shared.searchTrackByQuery(query: query) { data in
+                switch(data)
+                {
+                case .success(let searchList):
+                    DispatchQueue.main.async {
+                        self.trackSearchList = searchList.data ?? [SearchTrack]()
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        default:
+            print("")
         }
     }
     
@@ -70,63 +114,117 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
 //MARK: SearchBar Delegate
 extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        guard searchText.count > 3 else {return} // after 3 letters, search
         let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        searchByQuery(type: scopeButton, query: searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")
         
-        //aprint(searchText)
+        switch(scopeButton)
+        {
+        case Category.artist.buttonTitle:
+            searchByQuery(type: Category.artist.rawValue, query: searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")
+        case Category.album.buttonTitle:
+            searchByQuery(type: Category.album.rawValue, query: searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")
+        case Category.track.buttonTitle:
+            searchByQuery(type: Category.track.rawValue, query: searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")
+        default:
+            print("")
+        }
+        
     }
 }
 
 extension SearchViewController: UITableViewDelegate{
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let searchBar = searchController.searchBar
         let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        if(scopeButton == "artist"){
+
+        switch(scopeButton)
+        {
+        case Category.album.buttonTitle:
+            print("")
+        case Category.track.buttonTitle:
+            
+            print("")
+            
+        case Category.artist.buttonTitle:
             if let vc =  storyboard?.instantiateViewController(withIdentifier: "albumViewController") as? AlbumViewController{
-                let artist = self.searchList[indexPath.row]
+                let artist = self.artistSearchList[indexPath.row]
                 vc.artistID = artist.id
                 vc.artistName = artist.name
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+        default:
+            print("")
         }
         
     }
 }
 
 extension SearchViewController: UITableViewDataSource{
- 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchList.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "artistTableViewCell", for: indexPath) as! ArtistTableViewCell
         let searchBar = searchController.searchBar
         let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
 
         switch(scopeButton)
         {
-        case "album":
-            cell.label.text = self.searchList[indexPath.row].title
-            cell.photoView.kf.setImage(with: URL(string: "\(self.searchList[indexPath.row].cover_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
-        case "track":
+        case Category.album.buttonTitle:
+            return self.albumSearchList.count
+        case Category.track.buttonTitle:
+            return self.trackSearchList.count
             
-            cell.label.text = self.searchList[indexPath.row].title
-            cell.photoView.kf.setImage(with: URL(string: "\(self.searchList[indexPath.row].cover_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
-            
-        case "artist":
-            cell.label.text = String(self.searchList[indexPath.row].name ?? "")
-            cell.photoView.kf.setImage(with: URL(string: "\(self.searchList[indexPath.row].picture_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
+        case Category.artist.buttonTitle:
+            return self.artistSearchList.count
         default:
+            return 0
+        }
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let searchBar = searchController.searchBar
+        let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        
+        switch(scopeButton)
+        {
+        case Category.album.buttonTitle:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "albumSearchTableViewCell", for: indexPath) as! AlbumSearchTableViewCell
+    
+            let album = albumSearchList[indexPath.row]
+            if album.artist != nil{
+                cell.artistTitleLabel.text = album.artist?.name
+            }
+            else{
+                cell.artistTitleLabel.text = ""
+            }
+            cell.albumTitleLabel.text = album.title
+            
+            cell.artistImage.kf.setImage(with: URL(string: "\(album.artist?.picture_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
+            cell.albumImage.kf.setImage(with: URL(string: "\(album.cover_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
+            return cell
+        case Category.track.buttonTitle:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "trackSearchTableViewCell", for: indexPath) as! TrackSearchTableViewCell
+            let track = self.trackSearchList[indexPath.row]
+            cell.trackTitleLabel.text = track.title
+            cell.durationLabel.text = String(track.duration ?? 0) + " Saniye"
+            cell.trackImage.kf.setImage(with: URL(string: "\(track.album?.cover_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
+            cell.artistImage.kf.setImage(with: URL(string: "\(track.artist?.picture_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
+            cell.artistTitleLabel.text = track.artist?.name
+            return cell
+            
+        case Category.artist.buttonTitle:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "artistTableViewCell", for: indexPath) as! ArtistTableViewCell
+            cell.label.text = String(self.artistSearchList[indexPath.row].name ?? "")
+            cell.photoView.kf.setImage(with: URL(string: "\(self.artistSearchList[indexPath.row].picture_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "artistTableViewCell", for: indexPath) as! ArtistTableViewCell
             return cell
         }
         
-
-        return cell
+        
+ 
     }
-
+    
     
 }

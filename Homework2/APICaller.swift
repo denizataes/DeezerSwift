@@ -11,6 +11,7 @@ enum APIError: Error{
 class APICaller{
     static let shared = APICaller()
     
+    //MARK: Get Query
     func getGenres(completion: @escaping (Result<Genres, Error>) -> Void){
 
         guard let url = URL(string: "\(Constants.baseURL)/genre") else {return}
@@ -116,17 +117,61 @@ class APICaller{
         task.resume()
 
     }
-
-    func searchByQuery(type: String, query: String ,completion: @escaping (Result<SearchModel, Error>) -> Void){
-        guard let url = URL(string: "\(Constants.baseURL)/search/\(type)/?q=\(query)") else {return}
-        print("\(Constants.baseURL)/search/\(type)/?q=\(query)")
-
+    
+    //MARK: Search Query
+    func searchArtistByQuery(query: String ,completion: @escaping (Result<SearchArtists, Error>) -> Void){
+        guard let url = URL(string: "\(Constants.baseURL)/search/artist?q=\(query)") else {return}
+    
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
             guard let data, error == nil else{
                 return
             }
             do{
-                let results = try JSONDecoder().decode(SearchModel.self, from: data)
+                let results = try JSONDecoder().decode(SearchArtists.self, from: data)
+                completion(.success(results))
+            }catch{
+                print(String(describing: error)) // <- ✅ Use this for debuging!
+                completion(.failure(APIError.failedToGetData))
+            }
+
+        }
+        task.resume()
+    }
+    
+    func searchAlbumByQuery(query: String ,completion: @escaping (Result<SearchAlbums, Error>) -> Void){
+        guard let url = URL(string: "\(Constants.baseURL)/search/album?q=\(query)") else {return}
+    
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            guard let data, error == nil else{
+                return
+            }
+            do{
+                let results = try JSONDecoder().decode(SearchAlbums.self, from: data)
+                results.data?.forEach({ item in
+                    print("Album Adı: \(item.title)")
+                    print("Album Sanatçısı: \(item.artist?.name)")
+                    print("Resim URL: \(item.artist?.picture_big)")
+                })
+                completion(.success(results))
+            }catch{
+                print(String(describing: error)) // <- ✅ Use this for debuging!
+                completion(.failure(APIError.failedToGetData))
+            }
+
+        }
+        task.resume()
+    }
+    
+    
+    func searchTrackByQuery(query: String ,completion: @escaping (Result<SearchTracks, Error>) -> Void){
+        guard let url = URL(string: "\(Constants.baseURL)/search/track?q=\(query)") else {return}
+    
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            guard let data, error == nil else{
+                return
+            }
+            do{
+                let results = try JSONDecoder().decode(SearchTracks.self, from: data)
                 completion(.success(results))
             }catch{
                 print(String(describing: error)) // <- ✅ Use this for debuging!
