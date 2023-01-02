@@ -62,8 +62,7 @@ class AlbumDetailViewController: UIViewController, AVAudioPlayerDelegate {
          let topTxt = NSLocalizedString(topText, comment: "")
          let bottomTxt = NSLocalizedString(bottomText, comment: "")
             
-        let titleParameters = [NSAttributedString.Key.foregroundColor : UIColor.white,
-                                   NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .semibold)]
+        let titleParameters = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .semibold)]
         let subtitleParameters = [NSAttributedString.Key.foregroundColor : UIColor.systemGray4,
                                       NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13, weight: .semibold)]
             
