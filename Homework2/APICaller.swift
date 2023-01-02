@@ -172,9 +172,6 @@ class APICaller{
             do{
                 let results = try JSONDecoder().decode(SearchAlbums.self, from: data)
                 results.data?.forEach({ item in
-                    print("Album Adı: \(item.title)")
-                    print("Album Sanatçısı: \(item.artist?.name)")
-                    print("Resim URL: \(item.artist?.picture_big)")
                 })
                 completion(.success(results))
             }catch{

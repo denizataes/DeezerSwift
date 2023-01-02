@@ -24,7 +24,13 @@ class TrackTableViewCell: UITableViewCell {
         super.awakeFromNib()
         albumImageView.kf.indicatorType = .activity
         albumImageView.layer.cornerRadius = 20
-        playBtn.titleLabel?.text = "Önizle"
+        playBtn.setImage(UIImage(systemName: "play"), for: .normal)
+        playBtn.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        trackTitleLabel.adjustsFontSizeToFitWidth = true
+        trackTitleLabel.sizeToFit()
+        trackArtistLabel.adjustsFontSizeToFitWidth = true
+        trackArtistLabel.sizeToFit()
+        
         
     }
 
@@ -36,4 +42,13 @@ class TrackTableViewCell: UITableViewCell {
     @IBAction func btnClicked(_ sender: Any) {
         delegate?.didTapButtonInCell(self)
     }
+    
+    @objc func playButtonTapped() {
+         if playBtn.image(for: .normal) == UIImage(systemName: "play") {
+             playBtn.setImage(UIImage(systemName: "pause"), for: .normal)
+         } else {
+             playBtn.setImage(UIImage(systemName: "play"), for: .normal)
+         }
+     }
+
 }

@@ -22,14 +22,12 @@ class AlbumSearchTableViewCell: UITableViewCell {
         artistImage.clipsToBounds = true
         albumImage.layer.cornerRadius = 15
         albumImage.layer.shadowRadius = 10
-        //actorImage.layer.shadowRadius = 10
-        
+        albumTitleLabel.adjustsFontSizeToFitWidth = true
+        albumTitleLabel.sizeToFit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

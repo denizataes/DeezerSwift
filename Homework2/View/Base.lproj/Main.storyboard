@@ -90,11 +90,11 @@
             </objects>
             <point key="canvasLocation" x="-153.43511450381678" y="217.60563380281693"/>
         </scene>
-        <!--Home-->
+        <!--Ana Sayfa-->
         <scene sceneID="mN9-L5-Y2U">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yzj-e0-l2O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="Gpe-7y-2OS"/>
+                    <tabBarItem key="tabBarItem" title="Ana Sayfa" image="house" catalog="system" id="Gpe-7y-2OS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kcj-NV-sf7">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -158,6 +158,11 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="AyA-kk-VrO">
+                                <rect key="frame" x="0.0" y="404" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="systemPurpleColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Gk-RA-ISK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -169,6 +174,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="AyA-kk-VrO" id="GdY-5G-g57"/>
                         <outlet property="tableView" destination="vJu-qz-4Za" id="B0d-lm-xkB"/>
                     </connections>
                 </viewController>
@@ -291,11 +297,11 @@
             </objects>
             <point key="canvasLocation" x="-1080.1526717557251" y="1762.6760563380283"/>
         </scene>
-        <!--Search-->
+        <!--Ara-->
         <scene sceneID="l8A-SO-x70">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M6Z-dG-X5B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Swf-od-uLn"/>
+                    <tabBarItem key="tabBarItem" title="Ara" image="magnifyingglass" catalog="system" id="Swf-od-uLn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kkc-s5-t9s">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

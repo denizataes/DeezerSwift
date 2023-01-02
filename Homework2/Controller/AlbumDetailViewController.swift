@@ -11,23 +11,36 @@ import MediaPlayer
 class AlbumDetailViewController: UIViewController, AVAudioPlayerDelegate {
     var audioPlayer:AVAudioPlayer!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var trackList = [AlbumTrack]()
     var albumID: Int!
     var albumName: String!
     var artistName: String!
     var albumPhotoURL: String!
     
+
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = artistName + " · " + albumName
+        title = artistName
         tableView.delegate = self
         tableView.dataSource = self
+        activityIndicator.startAnimating()
         self.getTracks()
         tableView.register(UINib(nibName: "TrackTableViewCell", bundle: nil), forCellReuseIdentifier: "trackTableViewCell")
         self.navigationController?.navigationBar.tintColor = UIColor.purple
-        
-        
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = false
+        navigationController?.navigationBar.prefersLargeTitles = false
+        setMultilineNavigationBar(topText: albumName, bottomText: artistName)
+    }
+
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if audioPlayer != nil{
+            audioPlayer.stop()
+        }
     }
     
     private func getTracks(){
@@ -37,20 +50,47 @@ class AlbumDetailViewController: UIViewController, AVAudioPlayerDelegate {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.trackList = track
                     self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
                 }
-                
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
-        
-        
     }
+    
+    func setMultilineNavigationBar(topText:  String, bottomText : String) {
+         let topTxt = NSLocalizedString(topText, comment: "")
+         let bottomTxt = NSLocalizedString(bottomText, comment: "")
+            
+        let titleParameters = [NSAttributedString.Key.foregroundColor : UIColor.white,
+                                   NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .semibold)]
+        let subtitleParameters = [NSAttributedString.Key.foregroundColor : UIColor.systemGray4,
+                                      NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13, weight: .semibold)]
+            
+         let title:NSMutableAttributedString = NSMutableAttributedString(string: topTxt, attributes: titleParameters)
+         let subtitle:NSAttributedString = NSAttributedString(string: bottomTxt, attributes: subtitleParameters)
+            
+         title.append(NSAttributedString(string: "\n"))
+         title.append(subtitle)
+            
+         let size = title.size()
+            
+         let width = size.width
+         guard let height = navigationController?.navigationBar.frame.size.height else {return}
+            
+          let titleLabel = UILabel(frame: CGRect.init(x: 0, y: 0, width: width, height: height))
+          titleLabel.attributedText = title
+          titleLabel.numberOfLines = 0
+          titleLabel.textAlignment = .center
+          self.navigationItem.titleView = titleLabel
+        }
 }
 
 extension AlbumDetailViewController: UITableViewDelegate{
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension AlbumDetailViewController: UITableViewDataSource{
@@ -78,22 +118,32 @@ extension AlbumDetailViewController: UITableViewDataSource{
 
 extension AlbumDetailViewController: MyCellDelegate{
     func didTapButtonInCell(_ cell: TrackTableViewCell) {
+        
+        for i in 0..<tableView.numberOfRows(inSection: 0) {
+            if i != tableView.indexPath(for: cell)?.row{
+                let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as? TrackTableViewCell
+                //let button = cell.viewWithTag(1) as? UIButton
+                let btn = cell?.playBtn
+                btn?.setImage(UIImage(systemName: "play"), for: .normal)
+            }
+        }
+        
+        if audioPlayer != nil && audioPlayer.isPlaying{
+            audioPlayer.stop()
+        }
+    
         if let indexPath = tableView.indexPath(for: cell) {
             let track = self.trackList[indexPath.row].preview!
             guard let url = URL(string: track) else { return }
             
-            if cell.playBtn.titleLabel?.text == "Önizle" { //Play
-                
+            if cell.playBtn.image(for: .normal) == UIImage(systemName: "play") {
                 downloadFileFromURL(url: url)
             }
             else{
-                cell.playBtn.titleLabel?.text == "Duraklat"
-                audioPlayer.stop()
-
+                if audioPlayer != nil && audioPlayer.isPlaying{
+                    audioPlayer.stop()
+                }
             }
-            //            let playerItem = AVPlayerItem(url: url)
-            //            let player = AVQueuePlayer(items: [playerItem])
-            //            player.play()
         }
     }
     
@@ -118,6 +168,4 @@ extension AlbumDetailViewController: MyCellDelegate{
         }
     }
 }
-
-
 

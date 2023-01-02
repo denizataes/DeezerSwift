@@ -24,13 +24,17 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.topItem?.title = "Ara 👀"
+
         navigationController?.navigationBar.tintColor = UIColor.purple
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(UINib(nibName: "AlbumSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "albumSearchTableViewCell")
 
         tableView.register(UINib(nibName: "TrackSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "trackSearchTableViewCell")
 
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -142,7 +146,14 @@ extension SearchViewController: UITableViewDelegate{
         switch(scopeButton)
         {
         case Category.album.buttonTitle:
-            print("")
+            if let vc =  storyboard?.instantiateViewController(withIdentifier: "albumDetailViewController") as? AlbumDetailViewController{
+                let album = albumSearchList[indexPath.row]
+                vc.albumID = album.id
+                vc.albumName = album.title
+                vc.artistName = album.artist?.name
+                vc.albumPhotoURL = album.cover_xl
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         case Category.track.buttonTitle:
             
             print("")

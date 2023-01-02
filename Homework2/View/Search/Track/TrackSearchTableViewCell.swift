@@ -24,6 +24,10 @@ class TrackSearchTableViewCell: UITableViewCell {
         artistImage.clipsToBounds = true
         trackImage.layer.cornerRadius = 15
         trackImage.layer.shadowRadius = 10
+        trackTitleLabel.adjustsFontSizeToFitWidth = true
+        trackTitleLabel.sizeToFit()
+        artistTitleLabel.adjustsFontSizeToFitWidth = true
+        artistTitleLabel.sizeToFit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
