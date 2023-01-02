@@ -25,14 +25,14 @@ class AlbumViewController: UIViewController {
         title = artistName
         //activityIndicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.getAlbums()
+            self.getArtistAlbums()
         }
         
      
         
     }
 
-    private func getAlbums(){
+    private func getArtistAlbums(){
 
         APICaller.shared.getArtistAlbums(with: artistID) { data in
             switch(data)
@@ -55,6 +55,17 @@ class AlbumViewController: UIViewController {
 }
 
 extension AlbumViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let vc =  storyboard?.instantiateViewController(withIdentifier: "albumDetailViewController") as? AlbumDetailViewController{
+            let album = artistAlbums[indexPath.row]
+            vc.albumID = album.id
+            vc.albumName = album.title
+            vc.artistName = self.artistName
+            vc.albumPhotoURL = album.cover_xl
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
 }
 
@@ -73,7 +84,7 @@ extension AlbumViewController: UICollectionViewDataSource{
             releaseDate = Utils.shared.convertDate(dateString: album.release_date!)
         }
             
-        cell.pReleaseDate.text = releaseDate
+        cell.pReleaseDate.text = "'\(releaseDate)"
         return cell
     }
     

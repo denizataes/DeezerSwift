@@ -146,6 +146,36 @@
             </objects>
             <point key="canvasLocation" x="-1080" y="1065"/>
         </scene>
+        <!--Album Detail View Controller-->
+        <scene sceneID="ebR-Bc-ipe">
+            <objects>
+                <viewController storyboardIdentifier="albumDetailViewController" id="waf-Fk-bj8" customClass="AlbumDetailViewController" customModule="Homework2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8xb-J7-adG">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vJu-qz-4Za">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3Gk-RA-ISK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vJu-qz-4Za" firstAttribute="leading" secondItem="3Gk-RA-ISK" secondAttribute="leading" id="NkR-1x-FOZ"/>
+                            <constraint firstItem="3Gk-RA-ISK" firstAttribute="trailing" secondItem="vJu-qz-4Za" secondAttribute="trailing" id="QUk-Kh-euv"/>
+                            <constraint firstItem="3Gk-RA-ISK" firstAttribute="bottom" secondItem="vJu-qz-4Za" secondAttribute="bottom" id="cfl-Rq-UCx"/>
+                            <constraint firstItem="vJu-qz-4Za" firstAttribute="top" secondItem="3Gk-RA-ISK" secondAttribute="top" id="mCT-Lu-RsH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="vJu-qz-4Za" id="B0d-lm-xkB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3SA-rO-ac2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="98" y="1065"/>
+        </scene>
         <!--Album View Controller-->
         <scene sceneID="9Ie-p2-HvT">
             <objects>

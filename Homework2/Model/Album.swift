@@ -1,8 +1,3 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let album = try? newJSONDecoder().decode(Album.self, from: jsonData)
-
 import Foundation
 
 // MARK: - Album
@@ -14,7 +9,7 @@ struct Album: Codable {
     let cover_small, cover_medium, cover_big, cover_xl: String?
     let md5_image: String?
     let genre_id: Int?
-    let genres: Genres?
+    let genres: String?
     let label: String?
     let nb_tracks, duration, fans: Int?
     let release_date: String?

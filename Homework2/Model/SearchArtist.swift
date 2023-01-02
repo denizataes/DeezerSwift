@@ -1,4 +1,4 @@
-//https://api.deezer.com/search/artist?q=tarkan
+
 import Foundation
 
 // MARK: - SearchArtists

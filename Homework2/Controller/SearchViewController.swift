@@ -206,7 +206,9 @@ extension SearchViewController: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "trackSearchTableViewCell", for: indexPath) as! TrackSearchTableViewCell
             let track = self.trackSearchList[indexPath.row]
             cell.trackTitleLabel.text = track.title
-            cell.durationLabel.text = String(track.duration ?? 0) + " Saniye"
+            let seconds = track.duration!
+            let minutes = seconds / 60
+            cell.durationLabel.text = "\(minutes) dakika \(seconds % 60) saniye"
             cell.trackImage.kf.setImage(with: URL(string: "\(track.album?.cover_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
             cell.artistImage.kf.setImage(with: URL(string: "\(track.artist?.picture_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
             cell.artistTitleLabel.text = track.artist?.name

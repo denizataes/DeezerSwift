@@ -11,6 +11,7 @@ class GenreViewController: UIViewController {
     var genreID: Int!
     var genreName: String!
     var artistList = [GenreArtist]()
+    
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
