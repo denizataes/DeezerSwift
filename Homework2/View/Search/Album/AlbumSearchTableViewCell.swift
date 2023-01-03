@@ -18,12 +18,14 @@ class AlbumSearchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         albumImage.kf.indicatorType = .activity
         artistImage.kf.indicatorType = .activity
-        artistImage.layer.cornerRadius = artistImage.frame.width/2
+        artistImage.layer.cornerRadius = artistImage.frame.width / 2
         artistImage.clipsToBounds = true
         albumImage.layer.cornerRadius = 15
         albumImage.layer.shadowRadius = 10
         albumTitleLabel.adjustsFontSizeToFitWidth = true
         albumTitleLabel.sizeToFit()
+     
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

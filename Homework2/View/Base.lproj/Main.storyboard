@@ -226,24 +226,22 @@
                                                             <rect key="frame" x="0.0" y="309" width="393" height="89"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022 Kasım" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LV-AS-PeU">
-                                                                    <rect key="frame" x="10" y="46" width="78" height="14"/>
-                                                                    <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="14"/>
+                                                                    <rect key="frame" x="10" y="46.666666666666686" width="57" height="12"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karadenize Kalan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hg6-AJ-owB">
-                                                                    <rect key="frame" x="10" y="10" width="366" height="24"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="366" id="vH8-31-YZQ"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="24"/>
+                                                                    <rect key="frame" x="10" y="10.000000000000002" width="373" height="28.666666666666671"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8LV-AS-PeU" secondAttribute="trailing" constant="20" symbolic="YES" id="6kC-wr-0CB"/>
                                                                 <constraint firstItem="8LV-AS-PeU" firstAttribute="leading" secondItem="hg6-AJ-owB" secondAttribute="leading" id="AkQ-Md-w1l"/>
-                                                                <constraint firstItem="8LV-AS-PeU" firstAttribute="top" secondItem="hg6-AJ-owB" secondAttribute="bottom" constant="12" id="Ll8-e3-yzw"/>
+                                                                <constraint firstItem="8LV-AS-PeU" firstAttribute="top" secondItem="hg6-AJ-owB" secondAttribute="bottom" constant="8" id="Ll8-e3-yzw"/>
                                                                 <constraint firstItem="hg6-AJ-owB" firstAttribute="top" secondItem="Ygf-El-qQb" secondAttribute="top" constant="10" id="NJY-Sm-woK"/>
                                                                 <constraint firstItem="hg6-AJ-owB" firstAttribute="leading" secondItem="Ygf-El-qQb" secondAttribute="leading" constant="10" id="PnN-bi-1An"/>
                                                                 <constraint firstItem="hg6-AJ-owB" firstAttribute="leading" secondItem="Ygf-El-qQb" secondAttribute="leading" constant="10" id="U9D-iV-n5f"/>

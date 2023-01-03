@@ -18,22 +18,36 @@ class GenreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = genreName
-        self.navigationController?.navigationBar.tintColor = UIColor.purple
-        activityIndicator.startAnimating()
-        activityIndicator.style = .medium
-        tableView.register(UINib(nibName: "ArtistTableViewCell", bundle: nil), forCellReuseIdentifier: "artistTableViewCell")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.getArtist()
-        }
+        configure()
+    }
+    
+    ///Configure navigation, tableview, and others...
+    private func configure(){
         
+        // MARK: NavigationController
+        title = genreName
+        navigationController?.navigationBar.tintColor = UIColor.purple
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+ 
+        // MARK: TableView register and delegate
+        tableView.register(UINib(nibName: "ArtistTableViewCell", bundle: nil), forCellReuseIdentifier: "artistTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
         
-
-        // Do any additional setup after loading the view.
+        
+        
+        // MARK: ActivityIndicator
+        activityIndicator.style = .medium
+        activityIndicator.startAnimating()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { /// wait 0.2 second to see activityIndicator
+            self.getArtist()
+        }
+        
     }
 
+    /// get artistList and reload tableview
     private func getArtist(){
         
         APICaller.shared.getGenreArtist(with: genreID) { data in
@@ -52,6 +66,7 @@ class GenreViewController: UIViewController {
 
     }
 }
+
 //MARK: TableView Delegate
 extension GenreViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

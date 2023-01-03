@@ -8,24 +8,31 @@
 import UIKit
 import Kingfisher
 class HomeViewController: UIViewController {
+
     var genres = [Genre]()
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    ///Configure navigation, tableview, and others...
+    private func configure(){
+        // MARK: TableView
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "homeTableViewCell")
-        self.navigationController?.navigationBar.tintColor = UIColor.purple
-
-        getGenres()
+        
+        // MARK: NavigationController
+        navigationController?.navigationBar.tintColor = UIColor.purple
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.topItem?.title = "Kategoriler ⚡️"
-       // navigationController?.navigationBar.tintColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
-
-
+        
+        getGenres()
     }
     
+    ///Get Genres and reload tableview
     private func getGenres(){
         APICaller.shared.getGenres { data in
             switch(data)

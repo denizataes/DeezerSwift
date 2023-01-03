@@ -20,34 +20,27 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dv1-fc-Kqe">
                         <rect key="frame" x="10" y="10" width="56" height="56"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="56" id="GVI-GA-sD8"/>
-                            <constraint firstAttribute="width" constant="56" id="Uv0-Sf-bgp"/>
+                            <constraint firstAttribute="width" constant="56" id="5Hq-QR-USv"/>
+                            <constraint firstAttribute="height" constant="56" id="9Ra-9u-mWk"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwM-Cw-SSO">
-                        <rect key="frame" x="76" y="15" width="248" height="32"/>
+                        <rect key="frame" x="76" y="14.666666666666666" width="248" height="20.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w23-Ib-Py1">
-                        <rect key="frame" x="76" y="55" width="298" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="76" y="48.666666666666664" width="298" height="14.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eMN-fX-RgM">
-                        <rect key="frame" x="280" y="51" width="110" height="15"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
-                        <color key="textColor" systemColor="systemOrangeColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9x-tt-fc4">
-                        <rect key="frame" x="344" y="24" width="30" height="30"/>
+                        <rect key="frame" x="359" y="24" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="aik-3R-kjP"/>
-                            <constraint firstAttribute="width" constant="30" id="dev-8Q-COe"/>
+                            <constraint firstAttribute="width" constant="30" id="sRQ-f7-AnL"/>
+                            <constraint firstAttribute="height" constant="30" id="tdx-b5-7pH"/>
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="play" catalog="system">
@@ -57,29 +50,36 @@
                             <action selector="btnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0n1-ve-LjX"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eMN-fX-RgM">
+                        <rect key="frame" x="76" y="36" width="110" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
+                        <color key="textColor" systemColor="systemOrangeColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="w23-Ib-Py1" secondAttribute="bottom" constant="10" id="1qc-xE-9I6"/>
-                    <constraint firstItem="w23-Ib-Py1" firstAttribute="leading" secondItem="gwM-Cw-SSO" secondAttribute="leading" id="5rw-Cg-XFJ"/>
-                    <constraint firstItem="Dv1-fc-Kqe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="5uc-Sa-giP"/>
-                    <constraint firstAttribute="bottom" secondItem="P9x-tt-fc4" secondAttribute="bottom" constant="24" id="8Jw-8J-kOC"/>
-                    <constraint firstAttribute="trailing" secondItem="w23-Ib-Py1" secondAttribute="trailing" constant="20" id="9gC-mA-3Z9"/>
-                    <constraint firstItem="gwM-Cw-SSO" firstAttribute="leading" secondItem="Dv1-fc-Kqe" secondAttribute="trailing" constant="10" id="ECM-JV-73Q"/>
-                    <constraint firstItem="w23-Ib-Py1" firstAttribute="top" secondItem="P9x-tt-fc4" secondAttribute="bottom" constant="1" id="HUo-hI-YS2"/>
-                    <constraint firstAttribute="bottom" secondItem="Dv1-fc-Kqe" secondAttribute="bottom" constant="10" id="LjX-KD-ejs"/>
-                    <constraint firstAttribute="trailing" secondItem="gwM-Cw-SSO" secondAttribute="trailing" constant="70" id="QH3-ta-n2Y"/>
-                    <constraint firstItem="Dv1-fc-Kqe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="RHw-Ha-CbL"/>
-                    <constraint firstItem="w23-Ib-Py1" firstAttribute="top" secondItem="gwM-Cw-SSO" secondAttribute="bottom" constant="8" id="TiT-9J-jMH"/>
-                    <constraint firstItem="w23-Ib-Py1" firstAttribute="top" secondItem="gwM-Cw-SSO" secondAttribute="bottom" constant="8" id="Tpp-d8-Bxv"/>
-                    <constraint firstItem="eMN-fX-RgM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="51" id="VjW-7L-PDz"/>
-                    <constraint firstAttribute="trailing" secondItem="P9x-tt-fc4" secondAttribute="trailing" constant="20" id="XuD-lq-qQr"/>
-                    <constraint firstItem="w23-Ib-Py1" firstAttribute="leading" secondItem="Dv1-fc-Kqe" secondAttribute="trailing" constant="10" id="deg-c2-Fg1"/>
-                    <constraint firstItem="gwM-Cw-SSO" firstAttribute="leading" secondItem="Dv1-fc-Kqe" secondAttribute="trailing" constant="10" id="sfv-23-i80"/>
-                    <constraint firstItem="P9x-tt-fc4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="tir-jE-5Xy"/>
-                    <constraint firstItem="eMN-fX-RgM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="264" id="u9B-FJ-eTb"/>
-                    <constraint firstItem="gwM-Cw-SSO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="vcz-hI-CzJ"/>
-                    <constraint firstAttribute="trailing" secondItem="P9x-tt-fc4" secondAttribute="trailing" constant="4" id="xpA-NH-6z1"/>
-                    <constraint firstItem="P9x-tt-fc4" firstAttribute="leading" secondItem="Dv1-fc-Kqe" secondAttribute="trailing" constant="278" id="z3X-Qp-BzQ"/>
+                    <constraint firstItem="w23-Ib-Py1" firstAttribute="leading" secondItem="Dv1-fc-Kqe" secondAttribute="trailing" constant="10" id="2me-B4-RB0"/>
+                    <constraint firstAttribute="bottom" secondItem="P9x-tt-fc4" secondAttribute="bottom" constant="24" id="3sU-Sa-w6F"/>
+                    <constraint firstItem="w23-Ib-Py1" firstAttribute="top" secondItem="gwM-Cw-SSO" secondAttribute="bottom" constant="13.67" id="83a-rQ-XkO"/>
+                    <constraint firstAttribute="trailing" secondItem="P9x-tt-fc4" secondAttribute="trailing" constant="5" id="98M-cB-BEp"/>
+                    <constraint firstItem="eMN-fX-RgM" firstAttribute="top" secondItem="gwM-Cw-SSO" secondAttribute="bottom" constant="1" id="A0k-XB-kwQ"/>
+                    <constraint firstAttribute="trailing" secondItem="P9x-tt-fc4" secondAttribute="trailing" constant="5" id="FsM-Xh-w6K"/>
+                    <constraint firstAttribute="bottom" secondItem="w23-Ib-Py1" secondAttribute="bottom" constant="7" id="IDq-Xo-K21"/>
+                    <constraint firstItem="gwM-Cw-SSO" firstAttribute="leading" secondItem="Dv1-fc-Kqe" secondAttribute="trailing" constant="10" id="Kn9-JB-unf"/>
+                    <constraint firstAttribute="bottom" secondItem="P9x-tt-fc4" secondAttribute="bottom" constant="10" id="O3N-7l-Iff"/>
+                    <constraint firstItem="Dv1-fc-Kqe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="OjP-rm-EFT"/>
+                    <constraint firstItem="Dv1-fc-Kqe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="PNS-JB-Kxy"/>
+                    <constraint firstItem="P9x-tt-fc4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="eAD-M7-B5a"/>
+                    <constraint firstItem="eMN-fX-RgM" firstAttribute="leading" secondItem="Dv1-fc-Kqe" secondAttribute="trailing" constant="10" id="fgC-gt-2Ju"/>
+                    <constraint firstAttribute="bottom" secondItem="Dv1-fc-Kqe" secondAttribute="bottom" constant="10" id="hnO-bt-Xty"/>
+                    <constraint firstItem="eMN-fX-RgM" firstAttribute="top" secondItem="gwM-Cw-SSO" secondAttribute="bottom" constant="1" id="nT1-nw-bVt"/>
+                    <constraint firstAttribute="trailing" secondItem="w23-Ib-Py1" secondAttribute="trailing" constant="20" id="nTD-fU-vHG"/>
+                    <constraint firstItem="gwM-Cw-SSO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14.67" id="p87-p8-F02"/>
+                    <constraint firstAttribute="bottom" secondItem="P9x-tt-fc4" secondAttribute="bottom" constant="19" id="tX0-pM-Lyt"/>
+                    <constraint firstItem="P9x-tt-fc4" firstAttribute="leading" secondItem="eMN-fX-RgM" secondAttribute="trailing" constant="173" id="w12-6R-SOa"/>
+                    <constraint firstAttribute="trailing" secondItem="gwM-Cw-SSO" secondAttribute="trailing" constant="70" id="y3Z-lH-Sla"/>
+                    <constraint firstAttribute="trailing" secondItem="P9x-tt-fc4" secondAttribute="trailing" constant="5" id="zxc-VZ-TaB"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -90,7 +90,7 @@
                 <outlet property="trackArtistLabel" destination="w23-Ib-Py1" id="abf-L8-esH"/>
                 <outlet property="trackTitleLabel" destination="gwM-Cw-SSO" id="bxt-xT-kdh"/>
             </connections>
-            <point key="canvasLocation" x="192.36641221374046" y="30.633802816901412"/>
+            <point key="canvasLocation" x="192.36641221374046" y="27.816901408450704"/>
         </tableViewCell>
     </objects>
     <resources>

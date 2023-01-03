@@ -20,8 +20,6 @@
 		A069BA7529619DAC00CCA6A8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069BA7429619DAC00CCA6A8 /* Category.swift */; };
 		A069BA772961B40E00CCA6A8 /* SearchArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069BA762961B40E00CCA6A8 /* SearchArtist.swift */; };
 		A069BA792961B41F00CCA6A8 /* SearchTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069BA782961B41F00CCA6A8 /* SearchTrack.swift */; };
-		A069BA862961DD5F00CCA6A8 /* TrackSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069BA842961DD5F00CCA6A8 /* TrackSearchTableViewCell.swift */; };
-		A069BA872961DD5F00CCA6A8 /* TrackSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A069BA852961DD5F00CCA6A8 /* TrackSearchTableViewCell.xib */; };
 		A069BA8E2961DD7900CCA6A8 /* AlbumSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A069BA8C2961DD7900CCA6A8 /* AlbumSearchTableViewCell.swift */; };
 		A069BA8F2961DD7900CCA6A8 /* AlbumSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A069BA8D2961DD7900CCA6A8 /* AlbumSearchTableViewCell.xib */; };
 		A091CB38295E2DB800476957 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CB37295E2DB800476957 /* APICaller.swift */; };
@@ -58,8 +56,6 @@
 		A069BA7429619DAC00CCA6A8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A069BA762961B40E00CCA6A8 /* SearchArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtist.swift; sourceTree = "<group>"; };
 		A069BA782961B41F00CCA6A8 /* SearchTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTrack.swift; sourceTree = "<group>"; };
-		A069BA842961DD5F00CCA6A8 /* TrackSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSearchTableViewCell.swift; sourceTree = "<group>"; };
-		A069BA852961DD5F00CCA6A8 /* TrackSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackSearchTableViewCell.xib; sourceTree = "<group>"; };
 		A069BA8C2961DD7900CCA6A8 /* AlbumSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchTableViewCell.swift; sourceTree = "<group>"; };
 		A069BA8D2961DD7900CCA6A8 /* AlbumSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumSearchTableViewCell.xib; sourceTree = "<group>"; };
 		A091CB37295E2DB800476957 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -110,17 +106,25 @@
 		A0011C39295E2D57006F9FB5 /* Homework2 */ = {
 			isa = PBXGroup;
 			children = (
-				A091CB7B295F30FE00476957 /* Utils */,
-				A091CB64295E4ED700476957 /* View */,
 				A091CB39295E2ECF00476957 /* Model */,
+				A091CB64295E4ED700476957 /* View */,
+				A091CB65295E4EE700476957 /* Controller */,
+				A062405F2964DD7800BAC540 /* Service */,
+				A091CB7B295F30FE00476957 /* Utils */,
 				A0011C3A295E2D57006F9FB5 /* AppDelegate.swift */,
 				A0011C3C295E2D57006F9FB5 /* SceneDelegate.swift */,
 				A0011C43295E2D57006F9FB5 /* Assets.xcassets */,
 				A0011C48295E2D57006F9FB5 /* Info.plist */,
-				A091CB37295E2DB800476957 /* APICaller.swift */,
-				A091CB65295E4EE700476957 /* Controller */,
 			);
 			path = Homework2;
+			sourceTree = "<group>";
+		};
+		A062405F2964DD7800BAC540 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A091CB37295E2DB800476957 /* APICaller.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		A069BA7A2961DBBE00CCA6A8 /* Search */ = {
@@ -144,8 +148,6 @@
 		A069BA7D2961DBD700CCA6A8 /* Track */ = {
 			isa = PBXGroup;
 			children = (
-				A069BA842961DD5F00CCA6A8 /* TrackSearchTableViewCell.swift */,
-				A069BA852961DD5F00CCA6A8 /* TrackSearchTableViewCell.xib */,
 				A01DFE29296336C70009A858 /* TrackTableViewCell.swift */,
 				A01DFE2A296336C70009A858 /* TrackTableViewCell.xib */,
 			);
@@ -292,7 +294,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A091CB74295F024100476957 /* ArtistTableViewCell.xib in Resources */,
-				A069BA872961DD5F00CCA6A8 /* TrackSearchTableViewCell.xib in Resources */,
 				A0011C47295E2D57006F9FB5 /* LaunchScreen.storyboard in Resources */,
 				A0011C44295E2D57006F9FB5 /* Assets.xcassets in Resources */,
 				A091CB6B295E4FAA00476957 /* HomeTableViewCell.xib in Resources */,
@@ -316,7 +317,6 @@
 				A069BA7329605CA200CCA6A8 /* SearchAlbum.swift in Sources */,
 				A091CB67295E4F2200476957 /* SearchViewController.swift in Sources */,
 				A069BA7529619DAC00CCA6A8 /* Category.swift in Sources */,
-				A069BA862961DD5F00CCA6A8 /* TrackSearchTableViewCell.swift in Sources */,
 				A0011C3F295E2D57006F9FB5 /* HomeViewController.swift in Sources */,
 				A069BA792961B41F00CCA6A8 /* SearchTrack.swift in Sources */,
 				A091CB7D295F310A00476957 /* Utils.swift in Sources */,

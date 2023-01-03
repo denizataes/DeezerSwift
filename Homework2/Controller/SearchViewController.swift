@@ -7,50 +7,61 @@
 
 import UIKit
 import Kingfisher
+import MediaPlayer
 
 class SearchViewController: UIViewController, UISearchResultsUpdating {
     
-    
+    //MARK: Defining Properties
     @IBOutlet weak var tableView: UITableView!
     var artistSearchList = [SearchArtist]()
     var albumSearchList = [SearchAlbum]()
     var trackSearchList = [SearchTrack]()
     let searchController = UISearchController()
     let sections: [String] = Category.allCases.map { $0.buttonTitle }
-    
-    
-    //    let sections = ["artist", "album", "track"]
-    //var filteredShapes = []()
+    var audioPlayer:AVAudioPlayer!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    ///Configure navigation, tableview, and others...
+    private func configure(){
         
+        //MARK: NavigationController
         navigationController?.navigationBar.topItem?.title = "Ara 👀"
-
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         navigationController?.navigationBar.tintColor = UIColor.purple
-        navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.register(UINib(nibName: "AlbumSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "albumSearchTableViewCell")
+        navigationController?.navigationBar.prefersLargeTitles = false
+        definesPresentationContext = true
 
-        tableView.register(UINib(nibName: "TrackSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "trackSearchTableViewCell")
+
 
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
         
+        //MARK: SearchController
         searchController.loadViewIfNeeded()
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.enablesReturnKeyAutomatically = true
         searchController.searchBar.returnKeyType = UIReturnKeyType.done
-        definesPresentationContext = true
-        
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.scopeButtonTitles = sections
         searchController.searchBar.delegate = self
+        searchController.searchBar.setValue("İptal", forKey: "cancelButtonText")
+        searchController.searchBar.placeholder = "Albüm, şarkı veya sanatçı ara..."
+
         
+        //MARK: Register cell
+        tableView.register(UINib(nibName: "AlbumSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "albumSearchTableViewCell")
+        tableView.register(UINib(nibName: "TrackSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "trackSearchTableViewCell")
+        tableView.register(UINib(nibName: "TrackTableViewCell", bundle: nil), forCellReuseIdentifier: "trackTableViewCell")
         tableView.register(UINib(nibName: "ArtistTableViewCell", bundle: nil), forCellReuseIdentifier: "artistTableViewCell")
+        
     }
     
     private func searchByQuery(type: String, query: String){
@@ -104,11 +115,34 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         }
     }
     
+    ///first download mp3 file then play it. if there is an already playing music, stop it.
+    func downloadFileFromURL(url: URL){
+        var downloadTask:URLSessionDownloadTask
+        downloadTask = URLSession.shared.downloadTask(with: url) { (url, response, error) in
+            self.play(url: url!)
+        }
+        downloadTask.resume()
+    }
+    
+    func play(url:URL) {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url as URL)
+            audioPlayer.prepareToPlay()
+            audioPlayer.volume = 1.0
+            audioPlayer.play()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        } catch {
+            print("AVAudioPlayer init failed")
+        }
+    }
     
     
-    
+    ///If searchController change this method will be trigger.
     func updateSearchResults(for searchController: UISearchController) {
-        
+        if audioPlayer != nil && audioPlayer.isPlaying{
+            audioPlayer.stop()
+        }
         let searchBar = searchController.searchBar
         let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         let searchText = searchBar.text!
@@ -117,6 +151,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
 
 //MARK: SearchBar Delegate
 extension SearchViewController: UISearchBarDelegate{
+    ///If searchController textfield change then search by query.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         
@@ -136,7 +171,7 @@ extension SearchViewController: UISearchBarDelegate{
 }
 
 extension SearchViewController: UITableViewDelegate{
-    
+    ///If row selected then look scopeButton and navigate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -145,7 +180,7 @@ extension SearchViewController: UITableViewDelegate{
 
         switch(scopeButton)
         {
-        case Category.album.buttonTitle:
+        case Category.album.buttonTitle: ///if scope == album then navigate to AlbumDetailViewController
             if let vc =  storyboard?.instantiateViewController(withIdentifier: "albumDetailViewController") as? AlbumDetailViewController{
                 let album = albumSearchList[indexPath.row]
                 vc.albumID = album.id
@@ -154,11 +189,9 @@ extension SearchViewController: UITableViewDelegate{
                 vc.albumPhotoURL = album.cover_xl
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-        case Category.track.buttonTitle:
-            
+        case Category.track.buttonTitle: ///if scope == track do nothing
             print("")
-            
-        case Category.artist.buttonTitle:
+        case Category.artist.buttonTitle: ///if scope == artist then navigate to AlbumViewController
             if let vc =  storyboard?.instantiateViewController(withIdentifier: "albumViewController") as? AlbumViewController{
                 let artist = self.artistSearchList[indexPath.row]
                 vc.artistID = artist.id
@@ -166,14 +199,14 @@ extension SearchViewController: UITableViewDelegate{
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         default:
-            print("")
+            print("") /// do nothing
         }
         
     }
 }
 
 extension SearchViewController: UITableViewDataSource{
-    
+    ///the number of cells changes according to the selected scope
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let searchBar = searchController.searchBar
         let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
@@ -191,6 +224,7 @@ extension SearchViewController: UITableViewDataSource{
             return 0
         }
     }
+    ///cell types change according to the selected scope
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let searchBar = searchController.searchBar
@@ -214,30 +248,55 @@ extension SearchViewController: UITableViewDataSource{
             cell.albumImage.kf.setImage(with: URL(string: "\(album.cover_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
             return cell
         case Category.track.buttonTitle:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "trackSearchTableViewCell", for: indexPath) as! TrackSearchTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "trackTableViewCell", for: indexPath) as! TrackTableViewCell
+            cell.delegate = self
             let track = self.trackSearchList[indexPath.row]
             cell.trackTitleLabel.text = track.title
             let seconds = track.duration!
             let minutes = seconds / 60
             cell.durationLabel.text = "\(minutes) dakika \(seconds % 60) saniye"
-            cell.trackImage.kf.setImage(with: URL(string: "\(track.album?.cover_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
-            cell.artistImage.kf.setImage(with: URL(string: "\(track.artist?.picture_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
-            cell.artistTitleLabel.text = track.artist?.name
+            cell.albumImageView.kf.setImage(with: URL(string: "\( track.album?.cover_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
+            cell.trackArtistLabel.text = track.artist?.name
+            cell.trackTitleLabel.text = track.title
             return cell
-            
         case Category.artist.buttonTitle:
             let cell = tableView.dequeueReusableCell(withIdentifier: "artistTableViewCell", for: indexPath) as! ArtistTableViewCell
             cell.label.text = String(self.artistSearchList[indexPath.row].name ?? "")
             cell.photoView.kf.setImage(with: URL(string: "\(self.artistSearchList[indexPath.row].picture_xl ?? "")"),placeholder: nil,options: [.transition(.fade(0.7))])
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "artistTableViewCell", for: indexPath) as! ArtistTableViewCell
-            return cell
+           return UITableViewCell()
+        }
+    }
+}
+extension SearchViewController: TrackCellDelegate{
+    func didTapButtonInCell(_ cell: TrackTableViewCell) {
+        
+        for i in 0..<tableView.numberOfRows(inSection: 0) { ///Set button images of all cells to "play" except the selected cell
+            if i != tableView.indexPath(for: cell)?.row {
+                let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as? TrackTableViewCell
+                let btn = cell?.playBtn
+                btn?.setImage(UIImage(systemName: "play"), for: .normal)
+            }
         }
         
-        
- 
+        if audioPlayer != nil && audioPlayer.isPlaying{ /// If music is playing stop it
+            audioPlayer.stop()
+        }
+    
+        if let indexPath = tableView.indexPath(for: cell) {
+            let track = self.trackSearchList[indexPath.row].preview!
+            guard let url = URL(string: track) else { return } ///check if url exists
+            
+            if cell.playBtn.image(for: .normal) == UIImage(systemName: "play") {
+                downloadFileFromURL(url: url) /// First download the mp3 file then play it
+            }
+            else{
+                if audioPlayer != nil && audioPlayer.isPlaying{
+                    audioPlayer.stop()
+                }
+            }
+        }
     }
-    
-    
+
 }

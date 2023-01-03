@@ -19,17 +19,23 @@ class AlbumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    ///Configure navigation, tableview, and others...
+    private func configure(){
+        // MARK: CollectionView
         collectionView.delegate = self
         collectionView.dataSource = self
-        self.navigationController?.navigationBar.tintColor = UIColor.purple
+        
+        // MARK: NavigationController
+        navigationController?.navigationBar.tintColor = UIColor.purple
         title = artistName
-        //activityIndicator.startAnimating()
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.getArtistAlbums()
         }
-        
-     
-        
     }
 
     private func getArtistAlbums(){

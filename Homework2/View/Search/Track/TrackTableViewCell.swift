@@ -7,13 +7,13 @@
 
 import UIKit
 import Kingfisher
-protocol MyCellDelegate{
+protocol TrackCellDelegate{
       func didTapButtonInCell(_ cell: TrackTableViewCell)
     
 }
 
 class TrackTableViewCell: UITableViewCell {
-    var delegate: MyCellDelegate?
+    var delegate: TrackCellDelegate?
 
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var durationLabel: UILabel!

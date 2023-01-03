@@ -1,10 +1,3 @@
-//
-//  SideMenuViewModel.swift
-//  TwitterSwiftUI
-//
-//  Created by Deniz Ata Eş on 18.11.2022.
-//
-
 import Foundation
 
 enum Category: String, CaseIterable{

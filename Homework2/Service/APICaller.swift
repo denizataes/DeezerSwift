@@ -64,9 +64,6 @@ class APICaller{
             }
             do{
                 let results = try JSONDecoder().decode(AlbumTracks.self, from: data)
-                results.data?.forEach({ item in
-                    print(item.title)
-                })
                 completion(.success(results.data ?? [AlbumTrack]()))
             }catch{
                 print(String(describing: error)) // <- ✅ Use this for debuging!

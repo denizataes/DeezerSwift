@@ -16,10 +16,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="370" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q6b-3W-1ay">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q6b-3W-1ay">
                         <rect key="frame" x="10" y="10" width="76" height="76"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="76" id="BNC-R1-1Kk"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="Hzc-tE-5dM"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="76" id="QWG-8B-OzW"/>
                             <constraint firstAttribute="height" constant="76" id="Rwk-ok-Tdd"/>
                         </constraints>
                     </imageView>
@@ -29,37 +31,35 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z8G-sK-aEF">
-                        <rect key="frame" x="96" y="52.333333333333343" width="32" height="32"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z8G-sK-aEF">
+                        <rect key="frame" x="96" y="52.666666666666657" width="32" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="32" id="anw-Yo-x43"/>
-                            <constraint firstAttribute="height" constant="32" id="cfu-py-3us"/>
+                            <constraint firstAttribute="width" constant="32" id="FcS-Re-mCM"/>
+                            <constraint firstAttribute="height" constant="32" id="Tvr-Jt-YtW"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarkan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Aj-ye-3RM">
-                        <rect key="frame" x="138" y="59.333333333333343" width="35" height="19"/>
+                        <rect key="frame" x="138" y="59.333333333333343" width="182" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="q6b-3W-1ay" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="6sP-lJ-GqP"/>
-                    <constraint firstItem="JXx-Ev-duc" firstAttribute="leading" secondItem="q6b-3W-1ay" secondAttribute="trailing" constant="10" id="7Bq-CF-pw7"/>
-                    <constraint firstAttribute="bottom" secondItem="2Aj-ye-3RM" secondAttribute="bottom" constant="16" id="Aik-i6-0gc"/>
-                    <constraint firstItem="2Aj-ye-3RM" firstAttribute="top" secondItem="JXx-Ev-duc" secondAttribute="bottom" constant="29" id="C3R-0i-0wA"/>
-                    <constraint firstItem="z8G-sK-aEF" firstAttribute="top" secondItem="JXx-Ev-duc" secondAttribute="bottom" constant="21.329999999999998" id="H2P-Tu-xbV"/>
-                    <constraint firstAttribute="bottom" secondItem="z8G-sK-aEF" secondAttribute="bottom" constant="10" id="H4W-my-Ynn"/>
-                    <constraint firstAttribute="trailing" secondItem="JXx-Ev-duc" secondAttribute="trailing" constant="20" id="JXe-Qx-U5m"/>
-                    <constraint firstItem="z8G-sK-aEF" firstAttribute="top" secondItem="JXx-Ev-duc" secondAttribute="bottom" constant="22" id="Pdh-XD-6TD"/>
-                    <constraint firstItem="JXx-Ev-duc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ryj-tm-fg3"/>
-                    <constraint firstItem="JXx-Ev-duc" firstAttribute="leading" secondItem="q6b-3W-1ay" secondAttribute="trailing" constant="10" id="VI1-yG-3ex"/>
-                    <constraint firstItem="JXx-Ev-duc" firstAttribute="leading" secondItem="q6b-3W-1ay" secondAttribute="trailing" constant="10" id="VjT-Rg-Xp2"/>
-                    <constraint firstItem="JXx-Ev-duc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="WUo-zY-JUU"/>
-                    <constraint firstItem="2Aj-ye-3RM" firstAttribute="leading" secondItem="z8G-sK-aEF" secondAttribute="trailing" constant="10" id="aCM-wl-hQ5"/>
-                    <constraint firstItem="z8G-sK-aEF" firstAttribute="leading" secondItem="q6b-3W-1ay" secondAttribute="trailing" constant="10" id="gGR-C6-wTO"/>
-                    <constraint firstAttribute="bottom" secondItem="q6b-3W-1ay" secondAttribute="bottom" constant="10" id="rs6-pm-OlT"/>
-                    <constraint firstItem="q6b-3W-1ay" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="vsP-Rb-V7Z"/>
+                    <constraint firstAttribute="bottom" secondItem="z8G-sK-aEF" secondAttribute="bottom" constant="10" id="1hn-xL-RNH"/>
+                    <constraint firstItem="2Aj-ye-3RM" firstAttribute="top" secondItem="JXx-Ev-duc" secondAttribute="bottom" constant="29" id="61r-3Z-ke0"/>
+                    <constraint firstItem="JXx-Ev-duc" firstAttribute="leading" secondItem="q6b-3W-1ay" secondAttribute="trailing" constant="10" id="7iJ-7w-1qw"/>
+                    <constraint firstItem="q6b-3W-1ay" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="AZn-gX-x8f"/>
+                    <constraint firstItem="JXx-Ev-duc" firstAttribute="leading" secondItem="q6b-3W-1ay" secondAttribute="trailing" constant="10" id="GHm-Aj-FW2"/>
+                    <constraint firstItem="z8G-sK-aEF" firstAttribute="leading" secondItem="q6b-3W-1ay" secondAttribute="trailing" constant="10" id="HJM-iX-0wy"/>
+                    <constraint firstAttribute="trailing" secondItem="2Aj-ye-3RM" secondAttribute="trailing" constant="50" id="Oem-VW-Ev0"/>
+                    <constraint firstItem="2Aj-ye-3RM" firstAttribute="leading" secondItem="z8G-sK-aEF" secondAttribute="trailing" constant="10" id="R0q-9u-viW"/>
+                    <constraint firstItem="z8G-sK-aEF" firstAttribute="top" secondItem="JXx-Ev-duc" secondAttribute="bottom" constant="22.329999999999998" id="Urg-MA-F7A"/>
+                    <constraint firstAttribute="bottom" secondItem="q6b-3W-1ay" secondAttribute="bottom" constant="10" id="a5z-on-eoq"/>
+                    <constraint firstAttribute="trailing" secondItem="JXx-Ev-duc" secondAttribute="trailing" constant="20" id="bSg-6W-1aE"/>
+                    <constraint firstAttribute="bottom" secondItem="2Aj-ye-3RM" secondAttribute="bottom" constant="17.329999999999998" id="ejX-qc-NgY"/>
+                    <constraint firstItem="q6b-3W-1ay" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="hC0-ci-kMt"/>
+                    <constraint firstItem="JXx-Ev-duc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yho-Hx-84S"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

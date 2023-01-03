@@ -9,31 +9,40 @@ import UIKit
 import MediaPlayer
 
 class AlbumDetailViewController: UIViewController, AVAudioPlayerDelegate {
-    var audioPlayer:AVAudioPlayer!
     
+    //MARK: Defining Properties
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
+    var audioPlayer:AVAudioPlayer!
     var trackList = [AlbumTrack]()
     var albumID: Int!
     var albumName: String!
     var artistName: String!
     var albumPhotoURL: String!
     
-
-    
-    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = artistName
+        configure()
+    }
+    
+    ///Configure navigation, tableview, and others...
+    private func configure(){
+        // MARK: NavigationController
+        title = albumName
+        navigationController?.navigationBar.tintColor = UIColor.purple
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        // MARK: TableView
+        tableView.register(UINib(nibName: "TrackTableViewCell", bundle: nil), forCellReuseIdentifier: "trackTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        activityIndicator.startAnimating()
-        self.getTracks()
-        tableView.register(UINib(nibName: "TrackTableViewCell", bundle: nil), forCellReuseIdentifier: "trackTableViewCell")
-        self.navigationController?.navigationBar.tintColor = UIColor.purple
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
-        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        activityIndicator.startAnimating()        
+        self.getTracks()
         setMultilineNavigationBar(topText: albumName, bottomText: artistName)
+
     }
 
     
@@ -90,6 +99,9 @@ extension AlbumDetailViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 }
 
 extension AlbumDetailViewController: UITableViewDataSource{
@@ -115,7 +127,7 @@ extension AlbumDetailViewController: UITableViewDataSource{
     
 }
 
-extension AlbumDetailViewController: MyCellDelegate{
+extension AlbumDetailViewController: TrackCellDelegate{
     func didTapButtonInCell(_ cell: TrackTableViewCell) {
         
         for i in 0..<tableView.numberOfRows(inSection: 0) {
