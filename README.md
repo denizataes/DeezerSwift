@@ -35,12 +35,8 @@ My purpose of developing the application is to pull data through API, show it on
 
 ## Screenshots 📸
 
-<img src="https://user-images.githubusercontent.com/85442526/210647294-aa2f2782-1ec5-4f87-aa14-efbd523f5a90.png" width="300" height="600">
-<img src="https://user-images.githubusercontent.com/85442526/210647302-81927230-9177-46c2-9245-4067946fe298.png" width="300" height="600">
-<img src="https://user-images.githubusercontent.com/85442526/210647305-6ff9e3c2-f146-4bf9-8efa-f57292e42712.png" width="300" height="600">
-<img src="https://user-images.githubusercontent.com/85442526/210647308-e90b9bb4-25fa-4398-a872-554ce2c6349e.png" width="300" height="600">
-<img src="https://user-images.githubusercontent.com/85442526/210647311-b122ed7e-68c5-4e5c-80c1-bf68deb70571.png" width="300" height="600">
-<img src="https://user-images.githubusercontent.com/85442526/210647314-98ddd5f7-3b14-4907-95c2-deb36d776a91.png" width="300" height="600">
-<img src="https://user-images.githubusercontent.com/85442526/210647315-305d8526-1c4b-4b58-a28e-fdd09adb058c.png" width="300" height="600">
+<img src="https://user-images.githubusercontent.com/85442526/212152894-3bff523d-8ec1-4ea4-ad36-a0907412fe55.png" width="700" height="380">
+<img src="https://user-images.githubusercontent.com/85442526/212152922-507457b4-2b9b-4d52-92f9-3e8943514ac8.png" width="700" height="380">
+<img src="https://user-images.githubusercontent.com/85442526/212152928-2fcb595d-ffd0-4375-8afe-41913cc09171.png" width="700" height="380">
 
 
